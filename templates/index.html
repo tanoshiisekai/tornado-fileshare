@@ -1,0 +1,21 @@
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>文件分享</title>
+    </head>
+    <body>
+        <h1>已上传的文件</h1>
+        <ul>
+            {% for file in filelist %}
+            <li>{{file[1]}}
+                <a href="/download?filename={{file[1]}}">下载</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <a href="/delete?fileurl={{file[0]}}">删除</a></li>
+            {% end %}
+        </ul>
+        <h1>上传文件</h1>
+        <form action="/upload" enctype="multipart/form-data" method="post">
+            请选择一个文件上传：<input type="file" name="upload"/><br/>
+            <input type="submit" value="开始上传"/>
+        </form>
+    </body>
+</html>
